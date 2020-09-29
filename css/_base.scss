@@ -1,0 +1,33 @@
+.container_base1 {
+  $text-color2: yellow;
+
+  width: 200px;
+  height: 200px;
+  color: $text-color2;
+  color: darken($text-color2, 10);
+  background-color: blue;
+}
+
+@for $i from 1 through 3 {
+  .text-#{$i} {
+    font-size: 15px * $i;
+    color: purple;
+  }
+}
+
+.container_base2 {
+  $text-color2: green;
+
+  width: 200px;
+  height: 200px;
+  color: lighten($text-color2, 10);
+  background-color: darkorange;
+}
+
+$colors: (color1: red, color2: yellow, color3: purple);
+
+@each $key, $color in $colors {
+  .#{$color}-text {
+    color: $color;
+  }
+}

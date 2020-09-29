@@ -1,0 +1,48 @@
+@import 'base';
+
+$text-color: white;
+
+@mixin backgroundColor($bool) {
+  @if $bool == true {
+    background-color: red;
+  } 
+  @else if $bool == false {
+    background-color: rosybrown;
+  } 
+  @else {
+    background-color: seashell;
+  }
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  @extend .flex;
+  color: $text-color;
+  @include backgroundColor(true);
+}
+
+.container_one {
+  width: 200px;
+  height: 200px;
+  @include backgroundColor(false);
+}
+
+.container_two {
+  width: 200px;
+  height: 200px;
+  @include backgroundColor(undefined);
+
+  p {
+    color: #a35741;
+    cursor: pointer;
+
+    &:hover {
+      color: blue;
+    }
+  }
+}
